@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>誠品生活 eslite | 品牌分析與生活美學</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        eslite: {
+                            green: '#335238',
+                            lightgreen: '#5A7D5E',
+                            gold: '#C5A059',
+                            dark: '#1A1A1A',
+                            gray: '#666666',
+                            light: '#F9F9FB',
+                            accent: '#EBE7E0'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            scroll-behavior: smooth;
+        }
+        .font-serif-tc {
+            font-family: 'Noto Serif TC', serif;
+        }
+        .smooth-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-white text-eslite-dark antialiased selection:bg-eslite-green selection:text-white">
+
+    <!-- 導覽列 Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- 品牌 Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 bg-eslite-green text-white flex items-center justify-center font-serif font-bold text-xl rounded-sm tracking-wider">
+                    誠
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif-tc text-xl tracking-widest font-semibold text-eslite-dark group-hover:text-eslite-green transition-colors">誠品生活</span>
+                    <span class="text-[10px] tracking-[0.25em] text-eslite-gray uppercase -mt-1">eslite spectrum</span>
+                </div>
+            </a>
+
+            <!-- 桌上型導覽選單 -->
+            <nav class="hidden md:flex items-center gap-8 text-sm tracking-widest text-eslite-gray font-medium">
+                <a href="#concept" class="hover:text-eslite-green transition-colors py-2">品牌概念</a>
+                <a href="#story" class="hover:text-eslite-green transition-colors py-2">品牌故事</a>
+                <a href="#four-w" class="hover:text-eslite-green transition-colors py-2">核心定位 (4W)</a>
+                <a href="#products" class="hover:text-eslite-green transition-colors py-2">選品與服務</a>
+                <a href="#experience" class="hover:text-eslite-green transition-colors py-2">文化體驗</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <button onclick="scrollToSection('four-w')" class="px-5 py-2 text-xs tracking-widest border border-eslite-green text-eslite-green rounded hover:bg-eslite-green hover:text-white transition-all duration-300">
+                    探索分析
+                </button>
+            </div>
+
+            <!-- 行動裝置選單按鈕 -->
+            <button id="mobile-menu-btn" class="md:hidden text-eslite-dark focus:outline-none p-2" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- 行動裝置選單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-6 py-4 transition-all">
+            <div class="flex flex-col gap-4 text-sm tracking-widest text-eslite-gray">
+                <a href="#concept" class="mobile-link py-2 border-b border-gray-50">品牌概念</a>
+                <a href="#story" class="mobile-link py-2 border-b border-gray-50">品牌故事</a>
+                <a href="#four-w" class="mobile-link py-2 border-b border-gray-50">核心定位 (4W)</a>
+                <a href="#products" class="mobile-link py-2 border-b border-gray-50">選品與服務</a>
+                <a href="#experience" class="mobile-link py-2">文化體驗</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首頁 Hero Section -->
+    <section id="hero" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-eslite-accent/50 text-eslite-green text-xs font-medium tracking-widest">
+                        <span class="w-1.5 h-1.5 rounded-full bg-eslite-green"></span>
+                        人文．藝術．創意．生活
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif-tc font-normal tracking-wide text-eslite-dark leading-tight">
+                        場所精神與生活美學的<br>
+                        <span class="text-eslite-green font-medium">人文探索體驗</span>
+                    </h1>
+                    <p class="text-eslite-gray text-base md:text-lg leading-relaxed font-light max-w-2xl tracking-wider">
+                        誠品生活（eslite）以閱讀為核心，融入文化創意與生活體驗。我們不僅是書店，更是一處讓心靈駐足、靈感萌芽的文化場所。
+                    </p>
+                    <div class="pt-4 flex flex-wrap gap-4 items-center">
+                        <a href="#four-w" class="px-7 py-3.5 bg-eslite-green text-white text-sm tracking-widest rounded hover:bg-eslite-green/90 transition-all shadow-sm">
+                            探索 4W 品牌分析
+                        </a>
+                        <a href="#concept" class="px-7 py-3.5 border border-gray-200 text-eslite-dark text-sm tracking-widest rounded hover:border-eslite-green hover:text-eslite-green transition-all">
+                            了解品牌價值
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 shadow-xl relative">
+                            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="誠品閱讀空間" 
+                                 class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                                <p class="text-xs uppercase tracking-widest text-white/80">Eslite Culture</p>
+                                <p class="font-serif-tc text-lg font-light tracking-wide">「人文、藝術、創意、生活」</p>
+                            </div>
+                        </div>
+                        <!-- 裝飾性幾何卡片 -->
+                        <div class="hidden sm:block absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-lg border border-gray-100 max-w-[200px]">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="book-open" class="text-eslite-green w-8 h-8"></i>
+                                <div>
+                                    <div class="text-xl font-bold font-serif-tc text-eslite-dark">1989</div>
+                                    <div class="text-xs text-eslite-gray tracking-wider">創立於台灣</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌概念與故事 Concept & Story -->
+    <section id="concept" class="py-20 bg-eslite-light border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="text-xs uppercase tracking-[0.3em] text-eslite-gold font-bold">Brand Philosophy</h2>
+                <h3 class="text-3xl font-serif-tc text-eslite-dark font-medium tracking-wide">品牌概念與核心價值</h3>
+                <div class="w-12 h-0.5 bg-eslite-green mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 概念卡片 1 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow space-y-4">
+                    <div class="w-12 h-12 rounded-lg bg-eslite-accent/40 flex items-center justify-center text-eslite-green">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-serif-tc text-eslite-dark font-medium">人文核心精神</h4>
+                    <p class="text-eslite-gray text-sm leading-relaxed tracking-wider font-light">
+                        以人文藝術書店為起點，注重人的文化底蘊與思維交匯，讓人在繁忙城市中找到一處能夠沉澱自我的心靈空間。
+                    </p>
+                </div>
+
+                <!-- 概念卡片 2 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow space-y-4">
+                    <div class="w-12 h-12 rounded-lg bg-eslite-accent/40 flex items-center justify-center text-eslite-green">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-serif-tc text-eslite-dark font-medium">創意設計美學</h4>
+                    <p class="text-eslite-gray text-sm leading-relaxed tracking-wider font-light">
+                        融合原創文創商品與國內外選品，提倡生活美學，讓美感與創意不只是展覽，更融入日常的每分每秒。
+                    </p>
+                </div>
+
+                <!-- 概念卡片 3 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow space-y-4">
+                    <div class="w-12 h-12 rounded-lg bg-eslite-accent/40 flex items-center justify-center text-eslite-green">
+                        <i data-lucide="coffee" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-serif-tc text-eslite-dark font-medium">多元生活體驗</h4>
+                    <p class="text-eslite-gray text-sm leading-relaxed tracking-wider font-light">
+                        結合閱讀、餐飲、展演與質感購物，打造兼具文化特色與現代機能的複合式生活場域。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 品牌故事 Story -->
+            <div id="story" class="mt-20 bg-white rounded-2xl p-8 md:p-12 border border-gray-100 shadow-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-eslite-gold">Brand History</span>
+                        <h3 class="text-2xl md:text-3xl font-serif-tc text-eslite-dark">品牌故事：創立與蛻變</h3>
+                        <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                            誠品於 1989 年在台灣台北創立，最初以人文藝術專業書店為宗旨。三十多年來，誠品不斷突破創新，由單一書店成長為涵蓋「閱讀、文化、藝術、設計與購物」的多元複合式生活品牌。
+                        </p>
+                        <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                            透過將文化活動巧妙融入空間設計，誠品讓文化不再高不可攀，而是成為大眾日常生活中自然流淌的一部分。
+                        </p>
+                    </div>
+                    <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                        <div class="bg-eslite-light p-6 rounded-xl border border-gray-100">
+                            <div class="text-eslite-green font-serif-tc text-3xl font-bold mb-1">1989</div>
+                            <div class="text-xs font-medium text-eslite-dark mb-2">敦南本館成立</div>
+                            <p class="text-xs text-eslite-gray leading-relaxed font-light">開創 24 小時不打烊書店經營模式，成為城市文化地標。</p>
+                        </div>
+                        <div class="bg-eslite-light p-6 rounded-xl border border-gray-100">
+                            <div class="text-eslite-green font-serif-tc text-3xl font-bold mb-1">精選</div>
+                            <div class="text-xs font-medium text-eslite-dark mb-2">跨界複合空間</div>
+                            <p class="text-xs text-eslite-gray leading-relaxed font-light">引進多元設計品牌、質感餐飲與工藝手作，深化生活美學。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌分析四大問題 Who, What, Why, How -->
+    <section id="four-w" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="text-xs uppercase tracking-[0.3em] text-eslite-gold font-bold">Strategic Analysis</h2>
+                <h3 class="text-3xl font-serif-tc text-eslite-dark font-medium tracking-wide">品牌分析四大核心 (4W Framework)</h3>
+                <p class="text-eslite-gray text-sm tracking-wider font-light">透視誠品的品牌價值定位與消費者溝通溝通藍圖</p>
+                <div class="w-12 h-0.5 bg-eslite-green mx-auto mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 1. WHO -->
+                <div class="group border border-gray-200 hover:border-eslite-green rounded-2xl p-8 transition-all duration-300 hover:shadow-lg bg-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-eslite-accent/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold tracking-widest text-eslite-gold uppercase">01 / WHO</span>
+                            <span class="w-8 h-8 rounded-full bg-eslite-light flex items-center justify-center text-eslite-green font-serif font-bold text-sm">W</span>
+                        </div>
+                        <h4 class="text-2xl font-serif-tc text-eslite-dark font-medium">品牌為誰存在？</h4>
+                        <div class="h-0.5 w-8 bg-eslite-green"></div>
+                        <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                            專為<strong class="text-eslite-dark font-medium">喜愛閱讀、文化藝術、設計美學及追求質感生活</strong>的消費者而存在。不論是尋找知識靈感的學生、追求生活品味的都會人士，或是喜愛文創風格的探索者。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. WHAT -->
+                <div class="group border border-gray-200 hover:border-eslite-green rounded-2xl p-8 transition-all duration-300 hover:shadow-lg bg-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-eslite-accent/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold tracking-widest text-eslite-gold uppercase">02 / WHAT</span>
+                            <span class="w-8 h-8 rounded-full bg-eslite-light flex items-center justify-center text-eslite-green font-serif font-bold text-sm">W</span>
+                        </div>
+                        <h4 class="text-2xl font-serif-tc text-eslite-dark font-medium">提供什麼產品或服務？</h4>
+                        <div class="h-0.5 w-8 bg-eslite-green"></div>
+                        <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                            提供<strong class="text-eslite-dark font-medium">豐富書籍出版物、文創商品、生活選品、餐飲服務及文化展演活動</strong>，全方位滿足消費者在閱讀、購物、聚會與休閒的心靈需求。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. WHY -->
+                <div class="group border border-gray-200 hover:border-eslite-green rounded-2xl p-8 transition-all duration-300 hover:shadow-lg bg-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-eslite-accent/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold tracking-widest text-eslite-gold uppercase">03 / WHY</span>
+                            <span class="w-8 h-8 rounded-full bg-eslite-light flex items-center justify-center text-eslite-green font-serif font-bold text-sm">W</span>
+                        </div>
+                        <h4 class="text-2xl font-serif-tc text-eslite-dark font-medium">為什麼需要這個品牌？</h4>
+                        <div class="h-0.5 w-8 bg-eslite-green"></div>
+                        <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                            讓消費者在繁雜的日常生活中，<strong class="text-eslite-dark font-medium">輕鬆接觸閱讀、藝術與文化</strong>。透過多元開放的空間設計與藝文活動，持續獲取知識 inspiration 與生活美好體驗。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. HOW -->
+                <div class="group border border-gray-200 hover:border-eslite-green rounded-2xl p-8 transition-all duration-300 hover:shadow-lg bg-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-eslite-accent/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold tracking-widest text-eslite-gold uppercase">04 / HOW</span>
+                            <span class="w-8 h-8 rounded-full bg-eslite-light flex items-center justify-center text-eslite-green font-serif font-bold text-sm">H</span>
+                        </div>
+                        <h4 class="text-2xl font-serif-tc text-eslite-dark font-medium">如何與消費者溝通？</h4>
+                        <div class="h-0.5 w-8 bg-eslite-green"></div>
+                        <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                            透過<strong class="text-eslite-dark font-medium">實體複合門市、線上電商平台、社群媒體、會員忠誠計畫、文化講座與主題展覽</strong>，建構沉浸式互動，深化消費者品牌認同。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 品牌定位總結卡片 -->
+            <div class="mt-12 bg-eslite-green text-white p-8 md:p-10 rounded-2xl text-center space-y-4 shadow-lg">
+                <span class="text-xs uppercase tracking-[0.3em] text-eslite-gold font-semibold">Positioning Statement</span>
+                <h4 class="text-2xl md:text-3xl font-serif-tc font-normal">品牌定位總結</h4>
+                <p class="text-white/90 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-light tracking-wider">
+                    「我們是一個文化生活品牌，透過閱讀、文創選品與多元文化體驗，讓消費者在日常生活中感受文化魅力、發掘創意並提升生活美學。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 產品與選品 Showcase -->
+    <section id="products" class="py-20 bg-eslite-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div class="space-y-2">
+                    <h2 class="text-xs uppercase tracking-[0.3em] text-eslite-gold font-bold">Offerings & Products</h2>
+                    <h3 class="text-3xl font-serif-tc text-eslite-dark font-medium">產品與服務領域</h3>
+                </div>
+                <p class="text-eslite-gray text-sm tracking-wider font-light max-w-md mt-4 md:mt-0">
+                    從書本字裡行間的智慧，延伸至質感居家生活與美食體驗，打造無縫接軌的美學生態系。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 項目 1 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=600&q=80" alt="書籍與出版" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="text-xs text-eslite-gold font-semibold tracking-wider">READING</div>
+                        <h4 class="text-lg font-serif-tc text-eslite-dark font-medium">書籍與人文出版</h4>
+                        <p class="text-xs text-eslite-gray leading-relaxed font-light">中外文圖書、藝術設計典藏、獨立雜誌與專業導讀推薦。</p>
+                    </div>
+                </div>
+
+                <!-- 項目 2 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80" alt="文創與設計選品" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="text-xs text-eslite-gold font-semibold tracking-wider">CREATIVITY</div>
+                        <h4 class="text-lg font-serif-tc text-eslite-dark font-medium">文創與設計選品</h4>
+                        <p class="text-xs text-eslite-gray leading-relaxed font-light">精選文具、台灣與國際設計師作品、原創生活雜貨。</p>
+                    </div>
+                </div>
+
+                <!-- 項目 3 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=600&q=80" alt="咖啡與餐飲服務" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="text-xs text-eslite-gold font-semibold tracking-wider">GASTRONOMY</div>
+                        <h4 class="text-lg font-serif-tc text-eslite-dark font-medium">餐飲與咖啡輕食</h4>
+                        <p class="text-xs text-eslite-gray leading-relaxed font-light">誠品咖啡 eslite café、主題餐廳，提供放鬆品味的休憩時刻。</p>
+                    </div>
+                </div>
+
+                <!-- 項目 4 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=600&q=80" alt="文化展演活動" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="text-xs text-eslite-gold font-semibold tracking-wider">EVENTS</div>
+                        <h4 class="text-lg font-serif-tc text-eslite-dark font-medium">文化展演活動</h4>
+                        <p class="text-xs text-eslite-gray leading-relaxed font-light">新書分享會、藝文展覽、手作工坊與音樂沙龍。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化體驗與互動 Culture & Interactive Section -->
+    <section id="experience" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <h2 class="text-xs uppercase tracking-[0.3em] text-eslite-gold font-bold">Interactive Experience</h2>
+                    <h3 class="text-3xl font-serif-tc text-eslite-dark font-medium">探索誠品文化體驗</h3>
+                    <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                        誠品不僅僅是購物的地點，更是探索生活美學的起點。點擊下方頁籤，了解誠品如何透過空間設計與互動與顧客締結深厚情感。
+                    </p>
+
+                    <!-- 頁籤控制 -->
+                    <div class="space-y-4 pt-2">
+                        <button onclick="switchTab('space')" id="tab-btn-space" class="tab-btn w-full text-left p-4 rounded-lg border border-eslite-green bg-eslite-light transition-all flex items-center justify-between">
+                            <span class="font-serif-tc font-medium text-eslite-dark">01. 獨特空間美學 (Spatial Aesthetics)</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-eslite-green"></i>
+                        </button>
+                        <button onclick="switchTab('forum')" id="tab-btn-forum" class="tab-btn w-full text-left p-4 rounded-lg border border-gray-200 hover:border-eslite-green transition-all flex items-center justify-between">
+                            <span class="font-serif-tc font-medium text-eslite-dark">02. 誠品講堂與展演 (Forum & Arts)</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-eslite-gray"></i>
+                        </button>
+                        <button onclick="switchTab('member')" id="tab-btn-member" class="tab-btn w-full text-left p-4 rounded-lg border border-gray-200 hover:border-eslite-green transition-all flex items-center justify-between">
+                            <span class="font-serif-tc font-medium text-eslite-dark">03. 誠品人會員生態 (Member Community)</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-eslite-gray"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 頁籤內容展示 -->
+                <div class="lg:col-span-6 bg-eslite-light p-8 rounded-2xl border border-gray-100 min-h-[320px] flex items-center">
+                    <div id="tab-content-space" class="tab-content space-y-4">
+                        <div class="w-10 h-10 rounded-full bg-eslite-green/10 flex items-center justify-center text-eslite-green">
+                            <i data-lucide="layout" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-serif-tc text-eslite-dark font-medium">獨特空間美學設計</h4>
+                        <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                            每間誠品門市皆依循「連鎖而不複製」的理念，結合在地歷史與地理特色進行空間規劃。溫暖的木質調、沉靜的燈光，營造適合探索與閱讀的悠閒氛圍。
+                        </p>
+                    </div>
+
+                    <div id="tab-content-forum" class="tab-content hidden space-y-4">
+                        <div class="w-10 h-10 rounded-full bg-eslite-green/10 flex items-center justify-center text-eslite-green">
+                            <i data-lucide="mic" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-serif-tc text-eslite-dark font-medium">誠品講堂與文化展演</h4>
+                        <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                            每年舉辦數千場藝文活動，包含作者簽書會、哲學思辨講座、音樂發表會與設計藝術特展，讓顧客每次造訪都有新奇發現與思想啟發。
+                        </p>
+                    </div>
+
+                    <div id="tab-content-member" class="tab-content hidden space-y-4">
+                        <div class="w-10 h-10 rounded-full bg-eslite-green/10 flex items-center justify-center text-eslite-green">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-serif-tc text-eslite-dark font-medium">誠品人會員社群生態</h4>
+                        <p class="text-eslite-gray text-sm leading-relaxed font-light tracking-wider">
+                            整合線上「誠品線上」APP與實體體驗，提供專屬個人化推薦、專屬折扣與文化活動優先預約，建立高度忠誠且具美學共鳴的文化社群。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 Footer -->
+    <footer class="bg-eslite-dark text-white/80 py-16 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div class="md:col-span-5 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-eslite-green text-white flex items-center justify-center font-serif font-bold text-lg rounded-sm">
+                        誠
+                    </div>
+                    <span class="font-serif-tc text-xl text-white tracking-widest">誠品生活 eslite</span>
+                </div>
+                <p class="text-xs text-white/60 leading-relaxed font-light max-w-sm tracking-wider">
+                    人文、藝術、創意、生活。<br>
+                    人文關懷．藝術涵養．創意生活．誠品空間美學。
+                </p>
+            </div>
+
+            <div class="md:col-span-3 space-y-3">
+                <h5 class="text-xs font-bold uppercase tracking-widest text-eslite-gold">快速導覽</h5>
+                <ul class="text-xs space-y-2 font-light text-white/70">
+                    <li><a href="#concept" class="hover:text-white transition-colors">品牌概念</a></li>
+                    <li><a href="#story" class="hover:text-white transition-colors">品牌故事</a></li>
+                    <li><a href="#four-w" class="hover:text-white transition-colors">四大問題分析</a></li>
+                    <li><a href="#products" class="hover:text-white transition-colors">選品與服務</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 space-y-3">
+                <h5 class="text-xs font-bold uppercase tracking-widest text-eslite-gold">品牌分析總結</h5>
+                <p class="text-xs text-white/60 leading-relaxed font-light tracking-wider">
+                    本頁面為誠品生活（eslite）品牌定位與 4W 策略分析互動展示。
+                </p>
+                <div class="text-[11px] text-white/40 pt-4 border-t border-white/10">
+                    &copy; 2026 eslite Spectrum Analysis Page. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 邏輯 -->
+    <script>
+        // 初始化 Lucide 圖示
+        lucide.createIcons();
+
+        // 平滑滾動至指定區域
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 行動裝置選單切換
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // 文化體驗頁籤切換邏輯
+        function switchTab(tabKey) {
+            // 隱藏所有內容
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // 重置所有按鈕樣式
+            const btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(btn => {
+                btn.classList.remove('border-eslite-green', 'bg-eslite-light');
+                btn.classList.add('border-gray-200');
+                const icon = btn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('text-eslite-green');
+                    icon.classList.add('text-eslite-gray');
+                }
+            });
+
+            // 顯示目標內容
+            const targetContent = document.getElementById(`tab-content-${tabKey}`);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+            }
+
+            // 啟用目標按鈕樣式
+            const targetBtn = document.getElementById(`tab-btn-${tabKey}`);
+            if (targetBtn) {
+                targetBtn.classList.add('border-eslite-green', 'bg-eslite-light');
+                targetBtn.classList.remove('border-gray-200');
+                const icon = targetBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.add('text-eslite-green');
+                    icon.classList.remove('text-eslite-gray');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
